@@ -14,9 +14,11 @@ class Board:
     def click(self,rBoard,cords):#updates the board via a refrence board following game rules
         pass
 
-    def checkSurroundingSquares(self,rBoard,cords)#Returns the number of mines around cords
+    def checkSurroundingSquares(self,rBoard,cords):#Returns the number of mines around cords
         pass
 
+    def shuffleMine(self,cord):#moves a mine at cord to another space not containing a mine
+        pass
 
     def toString(self):
         for r in self.grid:
