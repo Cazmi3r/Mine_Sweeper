@@ -7,4 +7,8 @@ numMines = UserInterface.askForMines(boardSize * boardSize)
 
 gBoard = Board(boardSize)
 rBoard = Board(boardSize)
+rBoard.addMine(numMines)
+print("game board")
 UserInterface.updateBoard(gBoard)
+print("Refrence board")
+UserInterface.updateBoard(rBoard)

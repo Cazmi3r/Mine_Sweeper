@@ -1,9 +1,21 @@
+import random
+
 class Board:
     def __init__(self, size): #creates a grid filled with 0
-        self.grid = [[0 for i in range(1)] for j in range(size)]
+        #self.grid = [0 for j in range(size)]
+        #self.grid = [[0 for i in range(1)] for j in range(size)]
+        self.grid = [[0 for i in range(size)] for j in range(size)]
+        self.size = size
 
-    def addMine(self): #add a number of mines to the board randomly
-        pass
+    def addMine(self, numMines): #add a number of mines to the board randomly
+        for x in range(numMines):
+            isMine = True
+            while isMine:
+                x = random.randint(0, self.size - 1)
+                y = random.randint(0, self.size - 1)
+                if self.grid[x][y] != "X":
+                    self.grid[x][y] = "X"
+                    isMine = False
 
     def addFlag(self,cords):#adds a flag to the users board
         pass
@@ -21,7 +33,5 @@ class Board:
         pass
 
     def toString(self):
-        for r in self.grid:
-            for c in self.grid:
-                print(c, end = " ")
-            print()
+        for row in self.grid:
+            print(row)

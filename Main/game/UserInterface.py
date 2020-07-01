@@ -18,8 +18,8 @@ class UserInterface:#use this to run the game in CMD
         def askForMines(maxNumMines):
             #error handling
             mines = 0
-            while(mines < 1) or (mines > maxNumMines - 2):
-                try:
+            while(mines < 1) or (mines > maxNumMines - 2):#stops mines from being negative and
+                try:                                      #stops mines from ending the game as it starts
                     mines = int(input("please enter the number of mines"))
                 except:
                     print("Please Enter a Positve number")
