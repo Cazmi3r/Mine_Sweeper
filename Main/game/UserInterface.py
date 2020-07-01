@@ -2,6 +2,9 @@ import sys
 
 class UserInterface:#use this to run the game in CMD
 
+        def __init__(self):
+            x=0
+
         def updateBoard(gBoard):#displays board to player
             gBoard.toString()
 
@@ -25,8 +28,20 @@ class UserInterface:#use this to run the game in CMD
                     print("Please Enter a Positve number")
             return mines
 
-        def askForCords():
-            pass
+        def getCords():#gets Cords from user and converts it to an arry of [x,y]
+            toReturn = input("where at?")
+            toReturn = toReturn.split(',')
+            toReturn[0] = int(toReturn[0])
+            toReturn[1] = int(toReturn[1])
+            toReturn[0] = toReturn[0] - 1
+            toReturn[1] = toReturn[1] - 1
+            return toReturn
+
+        def userInput(gBoard):
+            switcher = input("What would you like to do?")
+            switcher={
+                "flag": gBoard.addFlag(UserInterface.getCords()),
+                "click":'null',}
 
         def help():#should print out an explanation of the rules and how to play
             pass
