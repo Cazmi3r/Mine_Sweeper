@@ -39,9 +39,22 @@ class UserInterface:#use this to run the game in CMD
 
         def userInput(gBoard):
             switcher = input("What would you like to do?")
-            switcher={
-                "flag": gBoard.addFlag(UserInterface.getCords()),
-                "click":'null',}
+            if switcher == "flag":
+                return UserInterface.userFlag(gBoard)
+            elif switcher == "click":
+                return UserInterface.userClick()
+            elif switcher == "quit":
+                return UserInterface.userQuit()
+
+        def userFlag(gBoard):
+            gBoard.addFlag(UserInterface.getCords())
+            return True
+
+        def userClick():
+            return True
+
+        def userQuit():
+            return False
 
         def help():#should print out an explanation of the rules and how to play
             pass
