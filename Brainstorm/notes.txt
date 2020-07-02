@@ -1,0 +1,5 @@
+if the recursion algorithm was a card in MTG
+
+Reveal target space. this spell fizzles if target is out of bounds.
+Then if the revealed space is a 0 create 9 copies of this spell on the stack
+targeting all spaces adjacent to the target

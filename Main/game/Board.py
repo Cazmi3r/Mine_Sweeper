@@ -1,11 +1,15 @@
 import random
+from game.Space import *
 
 class Board:
-    def __init__(self, size): #creates a grid filled with 0
-        #self.grid = [0 for j in range(size)]
-        #self.grid = [[0 for i in range(1)] for j in range(size)]
-        self.grid = [['^' for i in range(size)] for j in range(size)]
+    revealedSpaces = 0
+    def __init__(self, size, numMines):
+        #set variables
         self.size = size
+        self.numMines = numMines
+        self.blankSpaces = (size * size) - numMines
+        #create Grid
+        self.grid = [[Space() for i in range(size)] for j in range(size)]
 
     def addMine(self, numMines): #add a number of mines to the board randomly
         for x in range(numMines):
@@ -34,5 +38,9 @@ class Board:
 
 
     def toString(self):
-        for row in self.grid:
-            print(row)
+        toReturn = []
+        for i in range(self.size):
+            toReturn.append("\n")
+            for j in range(self.size):
+                toReturn.append(self.grid[i][j].toString())
+        return ''.join([toReturn[x] for x in range(len(toReturn))])
