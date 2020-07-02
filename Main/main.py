@@ -10,7 +10,7 @@ rules = Rules(boardSize, numMines)
 playGame = True
 #main game loop
 while playGame:
-    UserInterface.updateBoard(rules.getBoard())
+    UserInterface.displayDevBoard(rules.getBoard())
     rules.checkGameState()
     playGame = False
 #game over

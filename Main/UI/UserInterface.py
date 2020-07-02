@@ -5,7 +5,7 @@ class UserInterface:#use this to run the game in CMD
         def __init__(self):
             x=0
 
-        def updateBoard(board):#displays board to player
+        def displayDevBoard(board):#displays board to player
             print(board.toString())
 
         def askForBoardSize():
