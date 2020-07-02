@@ -1,6 +1,6 @@
 from game.Board import *
 from game.Rules import *
-from game.UserInterface import *
+from UI.UserInterface import *
 
 boardSize = UserInterface.askForBoardSize()
 numMines = UserInterface.askForMines(boardSize * boardSize)
