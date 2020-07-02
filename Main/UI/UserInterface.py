@@ -37,12 +37,12 @@ class UserInterface:#use this to run the game in CMD
             toReturn[1] = toReturn[1] - 1
             return toReturn
 
-        def userInput(gBoard):
+        def userInput(gBoard, rBoard):
             switcher = input("What would you like to do?")
             if switcher == "flag":
                 return UserInterface.userFlag(gBoard)
             elif switcher == "click":
-                return UserInterface.userClick()
+                return UserInterface.userClick(gBoard,rBoard)
             elif switcher == "quit":
                 return UserInterface.userQuit()
 
@@ -50,7 +50,8 @@ class UserInterface:#use this to run the game in CMD
             gBoard.addFlag(UserInterface.getCords())
             return True
 
-        def userClick():
+        def userClick(gBoard,rBoard):
+            gBoard.click(gBoard,rBoard)
             return True
 
         def userQuit():

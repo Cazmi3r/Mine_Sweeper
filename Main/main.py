@@ -16,6 +16,6 @@ while playGame:
     UserInterface.updateBoard(gBoard)
     print("Refrence board")
     UserInterface.updateBoard(rBoard)
-    playGame = UserInterface.userInput(gBoard)
+    playGame = UserInterface.userInput(gBoard, rBoard)
 
 print("Thanks for Playing")
