@@ -1,20 +1,17 @@
 from game.Board import *
 from game.Rules import *
-from game.UserInterface import *
-
+from UI.UserInterface import *
+#ask the user for game setup
 boardSize = UserInterface.askForBoardSize()
 numMines = UserInterface.askForMines(boardSize * boardSize)
-
-gBoard = Board(boardSize)
-rBoard = Board(boardSize)
-rBoard.addMine(numMines)
-print("game board")
-UserInterface.updateBoard(gBoard)
-print("Refrence board")
-UserInterface.updateBoard(rBoard)
-UserInterface.userInput(gBoard)
-
-print("game board")
-UserInterface.updateBoard(gBoard)
-print("Refrence board")
-UserInterface.updateBoard(rBoard)
+#setup the board
+rules = Rules(boardSize, numMines)
+#additional variables
+playGame = True
+#main game loop
+while playGame:
+    UserInterface.displayDevBoard(rules.getBoard())
+    rules.checkGameState()
+    playGame = UserInterface.userInput(rules)
+#game over
+print("Thanks for Playing")

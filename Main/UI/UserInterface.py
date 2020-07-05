@@ -5,8 +5,8 @@ class UserInterface:#use this to run the game in CMD
         def __init__(self):
             x=0
 
-        def updateBoard(gBoard):#displays board to player
-            gBoard.toString()
+        def displayDevBoard(board):#displays board to player
+            print(board.toString())
 
         def askForBoardSize():
             #error handling
@@ -37,11 +37,25 @@ class UserInterface:#use this to run the game in CMD
             toReturn[1] = toReturn[1] - 1
             return toReturn
 
-        def userInput(gBoard):
+        def userInput(rules):
             switcher = input("What would you like to do?")
-            switcher={
-                "flag": gBoard.addFlag(UserInterface.getCords()),
-                "click":'null',}
+            if switcher == "flag":
+                return UserInterface.userFlag(rules)
+            elif switcher == "click":
+                return UserInterface.userClick(rules)
+            elif switcher == "quit":
+                return UserInterface.userQuit(rules)
+
+        def userFlag(rules):
+            rules.addFlag(UserInterface.getCords())
+            return True
+
+        def userClick(gBoard,rBoard):
+            gBoard.click(gBoard,rBoard)
+            return True
+
+        def userQuit(rules):
+            return False
 
         def help():#should print out an explanation of the rules and how to play
             pass
