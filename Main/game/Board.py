@@ -24,7 +24,7 @@ class Board:
                     isMine = False
 
     def addFlag(self,cords):#adds a flag to the users board
-        self.grid[cords[0]][cords[1]] = 'F'
+        self.grid[cords[0]][cords[1]].setFlag()
     def firstClick(self,rBoard,cords): #does the same thing as click but if the user
         pass                    #clicks a mine that mine is moved before processing
 

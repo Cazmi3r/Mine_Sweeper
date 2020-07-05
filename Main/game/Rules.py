@@ -21,3 +21,5 @@ class Rules:
 
     def quit(self):
         pass
+    def addFlag(self, cords):
+        self.board.addFlag(cords)

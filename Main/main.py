@@ -12,6 +12,6 @@ playGame = True
 while playGame:
     UserInterface.displayDevBoard(rules.getBoard())
     rules.checkGameState()
-    playGame = False
+    playGame = UserInterface.userInput(rules)
 #game over
 print("Thanks for Playing")

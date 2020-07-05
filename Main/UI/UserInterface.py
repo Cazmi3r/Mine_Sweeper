@@ -40,21 +40,21 @@ class UserInterface:#use this to run the game in CMD
         def userInput(rules):
             switcher = input("What would you like to do?")
             if switcher == "flag":
-                return UserInterface.userFlag(gBoard)
+                return UserInterface.userFlag(rules)
             elif switcher == "click":
-                return UserInterface.userClick(gBoard,rBoard)
+                return UserInterface.userClick(rules)
             elif switcher == "quit":
-                return UserInterface.userQuit()
+                return UserInterface.userQuit(rules)
 
-        def userFlag(gBoard):
-            gBoard.addFlag(UserInterface.getCords())
+        def userFlag(rules):
+            rules.addFlag(UserInterface.getCords())
             return True
 
         def userClick(gBoard,rBoard):
             gBoard.click(gBoard,rBoard)
             return True
 
-        def userQuit():
+        def userQuit(rules):
             return False
 
         def help():#should print out an explanation of the rules and how to play
