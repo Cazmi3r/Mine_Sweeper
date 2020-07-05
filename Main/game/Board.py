@@ -10,6 +10,8 @@ class Board:
         self.blankSpaces = (size * size) - numMines
         #create Grid
         self.grid = [[Space() for i in range(size)] for j in range(size)]
+        #add mines to Board
+        self.addMine(numMines)
 
     def addMine(self, numMines): #add a number of mines to the board randomly
         for x in range(numMines):
@@ -17,8 +19,8 @@ class Board:
             while isMine:
                 x = random.randint(0, self.size - 1)
                 y = random.randint(0, self.size - 1)
-                if self.grid[x][y] != "X":
-                    self.grid[x][y] = "X"
+                if self.grid[x][y].getMine() == False :
+                    self.grid[x][y].setMine()
                     isMine = False
 
     def addFlag(self,cords):#adds a flag to the users board
