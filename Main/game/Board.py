@@ -30,6 +30,7 @@ class Board:
 
     def addFlag(self,cords):#adds a flag to the users board
         self.grid[cords[0]][cords[1]].setFlag()
+
     def firstClick(self,rBoard,cords): #does the same thing as click but if the user
         pass                    #clicks a mine that mine is moved before processing
 
@@ -38,6 +39,7 @@ class Board:
         #if the target is already revealed don't do anything
         if targetSpace.getRevealed():
             return
+        self.revealedSpaces = self.revealedSpaces + 1
         targetSpace.setRevealed()
         #checks to see if space is 0 or a mine
         if targetSpace.getNumOfSurroundingMines() != 0 or targetSpace.getMine():
@@ -61,7 +63,6 @@ class Board:
                     numOfMines = numOfMines + 1
             targetSpace.setNumOfSurroundingMines(numOfMines)
 
-
     def getSurroundingSpaces(self,cords):#Returns a list of all surrounding Spaces
         listSpaces = []
         targetSpace = self.getSpace(cords)
@@ -84,10 +85,15 @@ class Board:
 
     def shuffleMine(self,cord):#moves a mine at cord to another space not containing a mine
         pass
+
     def getSpace(self,cord):#return a space object at a cord
         return self.grid[cord[0]][cord[1]]
 
+    def getRevealedSpaces(self):
+        return self.revealedSpaces
 
+    def getBlankSpaces(self):
+        return self.blankSpaces
 
     def toString(self):
         toReturn = []

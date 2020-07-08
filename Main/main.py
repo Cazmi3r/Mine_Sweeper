@@ -19,5 +19,6 @@ while playGame:
     rules.checkGameState()
     print("\n")
     playGame = UserInterface.userInput(rules)
+    playGame = UserInterface.checkGameState(rules)
 #game over
 print("Thanks for Playing")

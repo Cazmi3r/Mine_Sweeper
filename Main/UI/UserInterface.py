@@ -22,7 +22,6 @@ class UserInterface:#use this to run the game in CMD
                     toReturn.append(toDisplay)
             return print(''.join([toReturn[x] for x in range(len(toReturn))]))
 
-
         def displaySpace(space):#returns a string of what a space should display
             #returns flag
             if space.getFlag() == True:
@@ -86,6 +85,22 @@ class UserInterface:#use this to run the game in CMD
 
         def userQuit(rules):
             return False
+
+        def checkGameState(rules):
+            rules.checkGameState()
+            if rules.getWin():
+                UserInterface.gameWin()
+                return False
+            if rules.getLose():
+                UserInterface.gameLose()
+                return False
+            return True
+
+        def gameWin():
+            print("you win!")
+
+        def gameLose():
+            print("you lose!")
 
         def help():#should print out an explanation of the rules and how to play
             pass
