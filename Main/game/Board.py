@@ -9,7 +9,7 @@ class Board:
         self.blankSpaces = (size * size) - numMines
         self.revealedSpaces = 0
         #create Grid
-        self.grid = [[Space() for i in range(size)] for j in range(size)]
+        self.grid = [[Space(i, j) for i in range(size)] for j in range(size)]
         #add mines to Board
         self.addMine(numMines)
         #calculate num of surrounding mines for all spaces
@@ -33,14 +33,19 @@ class Board:
     def firstClick(self,rBoard,cords): #does the same thing as click but if the user
         pass                    #clicks a mine that mine is moved before processing
 
-    def revealSpace(self,cords):#updates the board via a refrence board following game rules
-        self.grid[cords[0]][cords[1]].setRevealed()
-<<<<<<< HEAD
-
-    def getSize(self):
-        return self.size
-=======
->>>>>>> b12496b247a7b748f715f2fca76444fc05941ef4
+    def revealSpace(self,cords):#reveals target space, then reveals all surounding spaces if it is a 0
+        targetSpace = self.grid[cords[0]][cords[1]]
+        #if the target is already revealed don't do anything
+        if targetSpace.getRevealed():
+            return
+        targetSpace.setRevealed()
+        #checks to see if space is 0 or a mine
+        if targetSpace.getNumOfSurroundingMines() != 0 or targetSpace.getMine():
+            return
+        else:
+            surroundingSpaces = self.getSurroundingSpaces(targetSpace.getCords())
+            for space in surroundingSpaces:
+                self.revealSpace(space.getCords())
 
     def getSize(self):
         return self.size

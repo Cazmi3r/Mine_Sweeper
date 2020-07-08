@@ -1,22 +1,19 @@
 class Space():
-    def __init__(self):
+    def __init__(self, xCord, yCord):
             self.mine = False
             self.flag = False
             self.numOfSurroundingMines = 0
             self.revealed = False
+            self.cords = [xCord, yCord]
+
+    def getCords(self):
+        return self.cords
 
     def getRevealed(self):
         return self.revealed
 
     def setRevealed(self):
-<<<<<<< HEAD
-        if self.revealed:
-            self.revealed = False
-        else:
-            self.revealed = True
-=======
         self.revealed = True
->>>>>>> b12496b247a7b748f715f2fca76444fc05941ef4
 
     def getMine(self):
         return self.mine
@@ -51,6 +48,7 @@ class Space():
         "M:",str(self.mine),"|",
         "F:", str(self.flag), "|",
         "numM:", str(self.numOfSurroundingMines), "|",
-        "R:", str(self.revealed),
+        "R:", str(self.revealed), "|",
+        "C:", str(self.cords),
         "]"]
         return ''.join([toReturn[x] for x in range(len(toReturn))])
