@@ -5,6 +5,15 @@ class Space():
             self.numOfSurroundingMines = 0
             self.revealed = False
 
+    def getRevealed(self):
+        return self.revealed
+
+    def setRevealed(self):
+        if self.revealed:
+            self.revealed = False
+        else:
+            self.revealed = True
+
     def getMine(self):
         return self.mine
 
