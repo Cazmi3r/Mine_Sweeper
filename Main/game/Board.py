@@ -57,12 +57,12 @@ class Board:
         spaceToLookAt = [0, 0]
 
         #this will search a 3x3 grid centered on but excludes the target space
-        for i in range(-1, 3):
-            spaceToLookAt[0] = cords[0] + i
-            for j in range(-1, 3):
+        for i in range(-1, 2):
+            for j in range(-1, 2):
+                spaceToLookAt[0] = cords[0] + i
                 spaceToLookAt[1] = cords[1] + j
                 #confirms that were not looking at the target space
-                if i != 0 and j !=0:
+                if i != 0 or j !=0:
                     #confirms x is in bounds
                     if spaceToLookAt[0] >= 0 and spaceToLookAt[0] < self.size:
                         #confirms y is in bounds
