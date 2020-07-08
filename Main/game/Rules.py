@@ -23,3 +23,5 @@ class Rules:
         pass
     def addFlag(self, cords):
         self.board.addFlag(cords)
+    def revealSpace(self, cords):
+        self.board.revealSpace(cords)

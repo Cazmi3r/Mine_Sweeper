@@ -10,8 +10,14 @@ rules = Rules(boardSize, numMines)
 playGame = True
 #main game loop
 while playGame:
+    print("\n")
+    print("Dev Board")
     UserInterface.displayDevBoard(rules.getBoard())
+    print("\n")
+    print("Game Board")
+    UserInterface.displayGameBoard(rules.getBoard())
     rules.checkGameState()
+    print("\n")
     playGame = UserInterface.userInput(rules)
 #game over
 print("Thanks for Playing")

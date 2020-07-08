@@ -28,14 +28,19 @@ class Board:
     def firstClick(self,rBoard,cords): #does the same thing as click but if the user
         pass                    #clicks a mine that mine is moved before processing
 
-    def click(self,rBoard,cords):#updates the board via a refrence board following game rules
-        pass
+    def revealSpace(self,cords):#updates the board via a refrence board following game rules
+        self.grid[cords[0]][cords[1]].setRevealed()
+
+    def getSize(self):
+        return self.size
 
     def checkSurroundingSquares(self,rBoard,cords):#Returns the number of mines around cords
         pass
 
     def shuffleMine(self,cord):#moves a mine at cord to another space not containing a mine
         pass
+    def getSpace(self,cord):#return a space object at a cord
+        return self.grid[cord[0]][cord[1]]
 
 
 
