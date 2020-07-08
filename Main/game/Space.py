@@ -9,10 +9,7 @@ class Space():
         return self.revealed
 
     def setRevealed(self):
-        if self.revealed:
-            self.revealed = False
-        else:
-            self.revealed = True
+        self.revealed = True
 
     def getMine(self):
         return self.mine
@@ -36,8 +33,8 @@ class Space():
                 return True
         return False #if the code gets here the usser tried to flag a revealed space
 
-    def setNumOfSurroundingMines(self):
-        pass
+    def setNumOfSurroundingMines(self, numOfMines):
+        self.numOfSurroundingMines = numOfMines
 
     def getNumOfSurroundingMines(self):
         return self.numOfSurroundingMines
